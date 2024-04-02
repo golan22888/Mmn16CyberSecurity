@@ -23,6 +23,9 @@ class RequestHeader(Header):
         self.client_id = client_id
         self.payload_size = payload_size
 
+    def get_client_id(self):
+        return self.client_id
+
     def set_client_id(self):
         return self.client_id
 

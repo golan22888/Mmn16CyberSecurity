@@ -2,6 +2,7 @@ DEFAULT_PORT = 1256
 PORT_RANGE = (0, 65536)
 PORT_FILE = 'port.info'
 
+
 def get_port():
     try:
         with open(PORT_FILE, 'r') as file:

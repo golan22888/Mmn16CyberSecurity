@@ -1,0 +1,30 @@
+from header import ResponseHeader
+import payload as p
+from message import Message
+
+SERVER_VERSION = 24
+
+
+class ResponseProvider:
+    @staticmethod
+    def make_response(request, code, **data):
+        match code:
+            case 1600:
+                payload = p.ResponsePayload(data.get("id"))
+
+                print(f'response: {code} is being made for client {data.get("id")}\n')
+            case 1601 | 1609:
+                payload = p.ResponseEmptyPayload()
+            case 1603:
+                payload = p.ResponseKeyPayload(
+                    data.get("id"),
+                    data.get("encrypted_key"),
+                    data.get("ticket")
+                )
+            case default:
+                raise ValueError(f'Unknown response code: {code}')
+
+        header = ResponseHeader(SERVER_VERSION, code)
+        response = Message(header, payload)
+
+        return response

@@ -1,0 +1,20 @@
+from datetime import datetime, timedelta
+from crypt import encrypt_aes_cbc as crypt_cbc
+
+
+SERVERS_MUTUAL_KEY = 'DlU/1WUMQgbfqzX+mO5QlNzUAQT7VpJUE1vfHouFO/s'
+
+SERVER_VERSION = 24
+
+
+class Ticket:
+    def __init__(self, client_id, server_id, client_and_mag_server_aes_key):
+        self.version = SERVER_VERSION
+        self.client_id = client_id
+        self.server_id = server_id
+        self.creation_time = datetime.now()
+        (self.encrypted_aes_key_client_and_msg_server,
+         self.ticket_iv) = crypt_cbc(SERVERS_MUTUAL_KEY,
+                                     client_and_mag_server_aes_key, None)
+        expiration_time = self.creation_time + timedelta(0, 300, 0)
+        self.encrypted_expiration_time = crypt_cbc(SERVERS_MUTUAL_KEY, expiration_time, self.ticket_iv)[0]
