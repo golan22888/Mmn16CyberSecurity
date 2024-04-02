@@ -4,83 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63d43347-4dcb-4354-aa00-7866a7cd7561" name="Changes" comment="new project start">
-      <change afterPath="$PROJECT_DIR$/associated_files/msg.info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/clients_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/connection_queue.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/encrypted_key.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/handler_provider.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/header_parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/header_serializer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/main_authenticator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/message.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/op.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/payload.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/payload_parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/payload_parser_provider.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/payload_serializer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/payload_serializer_provider.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/request_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/request_parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/response_provider.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication_server/ticket.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/connection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/encrypted_key.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/main_client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/me.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/message.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/op.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/payload.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/payload_parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/session.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/srv.info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/srv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/clients_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/connection_queue.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/crypt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/decrypted_authenticator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/decrypted_ticket.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/handler_provider.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/header.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/header_parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/header_serializer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/main_msg_server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/message.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/op.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/payload.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/payload_parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/payload_parser_provider.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/payload_serializer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/payload_serializer_provider.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/read_from_msg_info.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/request_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/request_parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/response_provider.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/response_serializer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/message_server/servers_mutual_key.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_crypt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_write_to_files.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mmn16-cyber-space-security.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mmn16-cyber-space-security.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticatoin_server/authentication_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/message_server/server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticatoin_server/crypt.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/crypt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticatoin_server/header.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/header.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticatoin_server/header_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/response_serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticatoin_server/main_authenticator.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/servers_mutual_key.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticatoin_server/message" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticatoin_server/paylaod_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/authenticator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticatoin_server/payload.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticatoin_server/port.info" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/port.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticatoin_server/port.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/port.py" afterDir="false" />
-    </list>
+    <list default="true" id="63d43347-4dcb-4354-aa00-7866a7cd7561" name="Changes" comment="new project start" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -287,7 +211,7 @@
       <workItem from="1711982987519" duration="16254000" />
       <workItem from="1712002165460" duration="1996000" />
       <workItem from="1712004176661" duration="706000" />
-      <workItem from="1712060421084" duration="1952000" />
+      <workItem from="1712060421084" duration="2317000" />
     </task>
     <task id="LOCAL-00001" summary="new project start">
       <option name="closed" value="true" />
@@ -321,7 +245,23 @@
       <option name="project" value="LOCAL" />
       <updated>1711041133603</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="new project start">
+      <option name="closed" value="true" />
+      <created>1712062660775</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712062660775</updated>
+    </task>
+    <task id="LOCAL-00006" summary="new project start">
+      <option name="closed" value="true" />
+      <created>1712062677224</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712062677224</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
