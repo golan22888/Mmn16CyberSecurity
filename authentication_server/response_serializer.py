@@ -27,7 +27,7 @@ class ResponseSerializer:
         try:
             serialized_payload = ResponseSerializer.serialize_payload(response.get_header().get_code(),
                                                                       response.get_payload())
-            response.header.payload_size = response.get_payload().get_size()
+            response.header.payload_size = len(serialized_payload)
             serialized_header = ResponseSerializer.serialize_header(response.header)
             return serialized_header + serialized_payload
         except Exception as e:

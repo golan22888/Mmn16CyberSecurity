@@ -32,8 +32,7 @@ class RequestSymKeyPayloadParser(PayloadParser):
     def parse(data):
         try:
             server_id, nonce = struct.unpack(RequestSymKeyPayloadParser.PROTOCOL_PAYLOAD_FORMAT, data)
-            payload = p.RequestSymKeyPayload(server_id.rstrip(b'\x00').decode('utf-8'),
-                                             nonce.rstrip(b'\x00').decode('utf-8'))
+            payload = p.RequestSymKeyPayload(server_id, nonce)
             return payload
         except Exception as e:
             print(e)

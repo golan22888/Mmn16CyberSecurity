@@ -19,7 +19,7 @@ class RequestHandler(Thread):
         while True:
             client_socket, client_address = self.connections_queue.get_connection()
 
-            print(f'handling connction from {client_address}\n')
+            print(f'handling connection from {client_address}\n')
             Thread(target=self.handle_request, args=(client_socket, )).start()
 
     def handle_request(self, socket):

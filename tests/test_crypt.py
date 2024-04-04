@@ -5,26 +5,22 @@ import base64
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 from Crypto.Util.Padding import pad, unpad
-from struct import pack, unpack
-from authentication_server.client import Client
-from authentication_server.clients_manager import ClientsManager
-from datetime import datetime
-
-from authentication_server.payload_serializer import RequestSymKeyPayloadSerializer
 
 AES_KEY_SIZE = 32
 PATH = '../associated_files/msg.info'
+SERVERS_MUTUAL_KEY = 'DlU/1WUMQgbfqzX+mO5QlNzUAQT7VpJUE1vfHouFO/s'
+
 
 class TestCrypt(TestCase):
-    content = "avihu"
+    content = 'avihu'
 
-    # def test_all(self):
-
-        # print(base64.b64encode(key))
-        # cipher_text, iv = self.test_encrypt_aes_cbc(key, self.content)
-        # print(cipher_text)
-        # decrypted_content = self.test_decrypt_aes_cbc(key, cipher_text, iv)
-        # print(decrypted_content)
+    def test_all(self):
+        key = self.test_generate_aes_key()
+        print(key)
+        cipher_text, iv = self.test_encrypt_aes_cbc(key, self.content)
+        print(cipher_text)
+        decrypted_content = self.test_decrypt_aes_cbc(key, cipher_text, iv)
+        print(decrypted_content)
 
     def test_encrypt_aes_cbc(self, key, content):
         iv = get_random_bytes(AES.block_size)
@@ -47,17 +43,3 @@ class TestCrypt(TestCase):
     def test_generate_aes_key(self):
         aes_key = get_random_bytes(AES_KEY_SIZE)
         return aes_key
-
-    def test_encrypt_aes_key(self):
-        client_id = uuid.uuid4().hex
-        name = "avihu"
-        password_hash = ClientsManager.sha256_digest("8614523")
-        last_seen = datetime.now()
-        client = Client(client_id, name, password_hash, last_seen)
-        # print(ticket)
-        # print(key, '\n', client_id, '\n', server_id, '\n' )
-        protocol_payload_format = f'< {97}s'
-        # ticket_packed = struct.pack(protocol_payload_format, ticket)
-        # ticket_unpacked = struct.unpack(protocol_payload_format, ticket_packed)
-        # ticket_unpacked.
-        # ticket2 = Ticket(ticket_unpacked[0])

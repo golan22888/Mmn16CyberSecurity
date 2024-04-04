@@ -18,3 +18,24 @@ class Ticket:
                                      client_and_mag_server_aes_key, None)
         expiration_time = self.creation_time + timedelta(0, 300, 0)
         self.encrypted_expiration_time = crypt_cbc(SERVERS_MUTUAL_KEY, expiration_time, self.ticket_iv)[0]
+
+    def get_version(self):
+        return self.version
+
+    def get_client_id(self):
+        return self.client_id
+
+    def get_server_id(self):
+        return self.server_id
+
+    def get_creation_time(self):
+        return self.creation_time
+
+    def get_ticket_iv(self):
+        return self.ticket_iv
+
+    def get_encrypted_aes_key(self):
+        return self.encrypted_aes_key_client_and_msg_server
+
+    def get_encrypted_expiration_time(self):
+        return self.encrypted_expiration_time
