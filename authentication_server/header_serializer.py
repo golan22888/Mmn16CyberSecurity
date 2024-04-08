@@ -13,6 +13,6 @@ class HeaderSerializer:
 
             serialized_header = struct.pack(PROTOCOL_HEADER_FORMAT, version, code, payload_size)
         except Exception as e:
-            raise Exception('Error occurred while serializing header')
+            raise Exception('Error occurred while serializing header in auth')
 
         return serialized_header

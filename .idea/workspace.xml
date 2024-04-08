@@ -4,21 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63d43347-4dcb-4354-aa00-7866a7cd7561" name="Changes" comment="new project start2">
-      <change afterPath="$PROJECT_DIR$/client/crypt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/payload_serializer.py" afterDir="false" />
+    <list default="true" id="63d43347-4dcb-4354-aa00-7866a7cd7561" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/handler_provider.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/header.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/header_parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/header_serializer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/payload_parser_provider.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/payload_serializer_provider.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/request_parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/response_serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/associated_files/msg.info" beforeDir="false" afterPath="$PROJECT_DIR$/associated_files/msg.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication_server/clients.txt" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/clients.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication_server/clients_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/clients_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication_server/crypt.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/crypt.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/authentication_server/encrypted_key.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/encrypted_key.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication_server/payload_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/payload_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication_server/handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication_server/header_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/header_serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication_server/payload.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/payload.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/authentication_server/payload_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/payload_serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication_server/response_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/response_serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication_server/response_provider.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/response_provider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication_server/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/server.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/authentication_server/ticket.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication_server/ticket.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/authenticator.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/authenticator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/crypt.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/crypt.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/encrypted_key.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/encrypted_key.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/main_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/main_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/me.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/me.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/op.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/op.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/payload.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/payload.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/payload_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/payload_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/payload_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/payload_serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/srv.info" beforeDir="false" afterPath="$PROJECT_DIR$/client/srv.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/message_server/clients_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/message_server/clients_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/message_server/payload.py" beforeDir="false" afterPath="$PROJECT_DIR$/message_server/payload.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/message_server/payload_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/message_server/payload_parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/message_server/request_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/message_server/request_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/message_server/response_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/message_server/response_serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/message_server/read_from_msg_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/message_server/read_from_msg_info.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_crypt.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_crypt.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,37 +68,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Unittests for test_crypt.TestCrypt.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Unittests for test_crypt.TestCrypt.test_all.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Unittests for test_crypt.TestCrypt.test_encrypt_aes_cbc.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Unittests for test_crypt.TestCrypt.test_encrypt_aes_key.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Unittests for test_crypt.TestCrypt.test_generate_aes_key.TestKeyPayloadSerializer.test_serialize.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Unittests for test_crypt.TestCrypt.test_generate_aes_key.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Unittests for test_crypt.TestKeyPayloadSerializer.test_serialize.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Unittests for test_write_to_files.Test.test_if_data_write.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Unittests for test_write_to_files.Test.test_ip.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Unittests for test_write_to_files.Test.testif_file_open.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Unittests for test_write_to_files.TestWriteToFiles.test_write_to_files.executor&quot;: &quot;Run&quot;,
-    &quot;Python.crypt.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.main_authenticator.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main_client.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/golan/PycharmProjects/mmn16-cyber-space-security/message_server&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Unittests for test_crypt.TestCrypt.executor": "Run",
+    "Python tests.Unittests for test_crypt.TestCrypt.test_all.executor": "Run",
+    "Python tests.Unittests for test_crypt.TestCrypt.test_encrypt_aes_cbc.executor": "Run",
+    "Python tests.Unittests for test_crypt.TestCrypt.test_encrypt_aes_key.executor": "Run",
+    "Python tests.Unittests for test_crypt.TestCrypt.test_generate_aes_key.TestKeyPayloadSerializer.test_serialize.executor": "Run",
+    "Python tests.Unittests for test_crypt.TestCrypt.test_generate_aes_key.executor": "Run",
+    "Python tests.Unittests for test_crypt.TestKeyPayloadSerializer.test_serialize.executor": "Run",
+    "Python tests.Unittests for test_write_to_files.Test.test_if_data_write.executor": "Run",
+    "Python tests.Unittests for test_write_to_files.Test.test_ip.executor": "Run",
+    "Python tests.Unittests for test_write_to_files.Test.testif_file_open.executor": "Run",
+    "Python tests.Unittests for test_write_to_files.TestWriteToFiles.test_write_to_files.executor": "Run",
+    "Python.crypt.executor": "Debug",
+    "Python.main_authenticator.executor": "Run",
+    "Python.main_client.executor": "Run",
+    "Python.main_msg_server.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/golan/PycharmProjects/mmn16-cyber-space-security/client",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\golan\PycharmProjects\mmn16-cyber-space-security\client" />
       <recent name="C:\Users\golan\PycharmProjects\mmn16-cyber-space-security\message_server" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -86,7 +111,7 @@
       <recent name="C:\Users\golan\PycharmProjects\mmn16-cyber-space-security\authenticatoin_server" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for test_crypt.TestCrypt.test_all">
+  <component name="RunManager" selected="Python.main_client">
     <configuration name="main_authenticator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="mmn16-cyber-space-security" />
       <option name="ENV_FILES" value="" />
@@ -133,6 +158,45 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main_msg_server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="mmn16-cyber-space-security" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/message_server" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/message_server/main_msg_server.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for test_crypt.TestCrypt" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="mmn16-cyber-space-security" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_crypt.TestCrypt&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unittests for test_crypt.TestCrypt.test_all" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="mmn16-cyber-space-security" />
       <option name="ENV_FILES" value="" />
@@ -149,45 +213,13 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for test_crypt.TestCrypt.test_encrypt_aes_key" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="mmn16-cyber-space-security" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_crypt.TestCrypt.test_encrypt_aes_key&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests for test_write_to_files.Test.test_ip" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="mmn16-cyber-space-security" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_write_to_files.Test.test_ip&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for test_crypt.TestCrypt.test_all" />
-        <item itemvalue="Python tests.Unittests for test_crypt.TestCrypt.test_encrypt_aes_key" />
         <item itemvalue="Python.main_client" />
-        <item itemvalue="Python tests.Unittests for test_write_to_files.Test.test_ip" />
+        <item itemvalue="Python.main_msg_server" />
         <item itemvalue="Python.main_authenticator" />
+        <item itemvalue="Python tests.Unittests for test_crypt.TestCrypt.test_all" />
+        <item itemvalue="Python tests.Unittests for test_crypt.TestCrypt" />
       </list>
     </recent_temporary>
   </component>
@@ -228,6 +260,8 @@
       <workItem from="1712002165460" duration="1996000" />
       <workItem from="1712004176661" duration="706000" />
       <workItem from="1712060421084" duration="26081000" />
+      <workItem from="1712232635889" duration="4818000" />
+      <workItem from="1712402578476" duration="65939000" />
     </task>
     <task id="LOCAL-00001" summary="new project start">
       <option name="closed" value="true" />
@@ -285,7 +319,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712062845710</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="new project start2">
+      <option name="closed" value="true" />
+      <created>1712232662159</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1712232662159</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,6 +351,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/client/client.py</url>
+          <line>59</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/client/payload_serializer.py</url>
+          <line>59</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -319,18 +373,19 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$Unittests_for_test_write_to_files_Test_test_ip.coverage" NAME="Unittests for test_write_to_files.Test.test_ip Coverage Results" MODIFIED="1711902988164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$Unittests_for_test_crypt_TestCrypt.coverage" NAME="Unittests for test_crypt.TestCrypt Coverage Results" MODIFIED="1711561075157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$main_msg_server.coverage" NAME="main_msg_server Coverage Results" MODIFIED="1712582715172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/message_server" />
+    <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$Unittests_for_test_write_to_files_Test_test_ip.coverage" NAME="Unittests for test_write_to_files.Test.test_ip Coverage Results" MODIFIED="1712498804739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$Unittests_for_test_crypt_TestCrypt.coverage" NAME="Unittests for test_crypt.TestCrypt Coverage Results" MODIFIED="1712521142545" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$Unittests_for_test_crypt_TestCrypt_test_encrypt_aes_cbc.coverage" NAME="Unittests for test_crypt.TestCrypt.test_encrypt_aes_cbc Coverage Results" MODIFIED="1711751907213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$main_client.coverage" NAME="main_client Coverage Results" MODIFIED="1711908279398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/client" />
     <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$Unittests_for_test_crypt_TestCrypt_test_encrypt_aes_key.coverage" NAME="Unittests for test_crypt.TestCrypt.test_encrypt_aes_key Coverage Results" MODIFIED="1712062308635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$main_client.coverage" NAME="main_client Coverage Results" MODIFIED="1712582746749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/client" />
     <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$Unittests_for_test_write_to_files_TestWriteToFiles_test_write_to_files.coverage" NAME="Unittests for test_write_to_files.TestWriteToFiles.test_write_to_files Coverage Results" MODIFIED="1711477771708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$main_authenticator.coverage" NAME="main_authenticator Coverage Results" MODIFIED="1711810151574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/authentication_server" />
     <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$Unittests_for_test_write_to_files_Test_test_if_data_write.coverage" NAME="Unittests for test_write_to_files.Test.test_if_data_write Coverage Results" MODIFIED="1711479227267" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$main_authenticator.coverage" NAME="main_authenticator Coverage Results" MODIFIED="1712581305437" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/authentication_server" />
     <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$Unittests_for_test_write_to_files_Test_testif_file_open.coverage" NAME="Unittests for test_write_to_files.Test.testif_file_open Coverage Results" MODIFIED="1711479097785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$Unittests_for_test_crypt_TestCrypt_test_generate_aes_key.coverage" NAME="Unittests for test_crypt.TestCrypt.test_generate_aes_key Coverage Results" MODIFIED="1711569899682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$Unittests_for_test_crypt_TestKeyPayloadSerializer_test_serialize.coverage" NAME="Unittests for test_crypt.TestKeyPayloadSerializer.test_serialize Coverage Results" MODIFIED="1711570368066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$Unittests_for_test_crypt_TestCrypt_test_all.coverage" NAME="Unittests for test_crypt.TestCrypt.test_all Coverage Results" MODIFIED="1712161191910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$Unittests_for_test_crypt_TestCrypt_test_all.coverage" NAME="Unittests for test_crypt.TestCrypt.test_all Coverage Results" MODIFIED="1712523721154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/mmn16_cyber_space_security$Unittests_for_test_crypt_TestCrypt_test_generate_aes_key_TestKeyPayloadSerializer_test_serialize.coverage" NAME="Unittests for test_crypt.TestCrypt.test_generate_aes_key.TestKeyPayloadSerializer.test_serialize Coverage Results" MODIFIED="1711570104927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>
 </project>

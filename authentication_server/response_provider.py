@@ -10,14 +10,14 @@ class ResponseProvider:
     def make_response(request, code, **data):
         match code:
             case 1600:
-                payload = p.ResponsePayload(data.get("id"))
+                payload = p.ResponsePayload(data.get("client_id"))
 
-                print(f'response: {code} is being made for client {data.get("id")}\n')
+                print(f'response: {code} is being made for client {data.get("client_id")}\n')
             case 1601 | 1609:
                 payload = p.ResponseEmptyPayload()
             case 1603:
                 payload = p.ResponseKeyPayload(
-                    data.get("id"),
+                    data.get("client_id"),
                     data.get("encrypted_key"),
                     data.get("ticket")
                 )

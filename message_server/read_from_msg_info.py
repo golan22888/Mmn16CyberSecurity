@@ -8,6 +8,6 @@ def get_port_server_mutual_key():
             port = msg_info_lines[0].split(":")[1]
             server_id = msg_info_lines[2]
             servers_mutual_key = msg_info_lines[3]
-            return port, server_id, servers_mutual_key
+            return int(port), server_id, servers_mutual_key
     except FileNotFoundError:
         print(f'{MSG_INFO_PATH} file not found.')

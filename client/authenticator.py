@@ -1,13 +1,15 @@
 from crypt import encrypt_aes_cbc
+from datetime import datetime
 
 
 class Authenticator:
-    def __init__(self, authenticator_iv, version, client_id, server_id, creation_time, key):
-        self.authenticator_iv = authenticator_iv
-        self.version = encrypt_aes_cbc(key, version, authenticator_iv)
-        self.client_id = encrypt_aes_cbc(key, client_id, authenticator_iv)
-        self.server_id = encrypt_aes_cbc(key, server_id, authenticator_iv)
-        self.creation_time = encrypt_aes_cbc(key, creation_time, authenticator_iv)
+    def __init__(self, version, client_id, server_id, key):
+        self.version, self.authenticator_iv = encrypt_aes_cbc(key, version, None)
+        self.client_id = encrypt_aes_cbc(key, client_id, self.authenticator_iv)[0]
+        server_id = bytes.fromhex(server_id)
+        self.server_id = encrypt_aes_cbc(key, server_id, self.authenticator_iv)[0]
+        creation_time = int(datetime.now().timestamp()).to_bytes(8, byteorder='little', signed=False)
+        self.creation_time = encrypt_aes_cbc(key, creation_time, self.authenticator_iv)[0]
 
     def get_authenticator_iv(self):
         return self.authenticator_iv

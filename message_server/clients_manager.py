@@ -18,7 +18,7 @@ class ClientsManager:
                     client = Client(client_data[0], client_data[1], client_data[2])
                     self.clients.append(client)
         except FileNotFoundError:
-            open(CLIENT_FILE_PATH, "w").close()
+            print("File not found")
 
     def save_client(self, client):
         if client.get_client_id() in self.clients:

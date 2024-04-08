@@ -1,8 +1,8 @@
+import base64
 from datetime import datetime, timedelta
 from crypt import encrypt_aes_cbc as crypt_cbc
 
-
-SERVERS_MUTUAL_KEY = 'DlU/1WUMQgbfqzX+mO5QlNzUAQT7VpJUE1vfHouFO/s'
+SERVERS_MUTUAL_KEY = base64.b64decode(b'DlU/1WUMQgbfqzX+mO5QlNzUAQT7VpJUE1vfHouFO/s=')
 
 SERVER_VERSION = 24
 
@@ -12,11 +12,12 @@ class Ticket:
         self.version = SERVER_VERSION
         self.client_id = client_id
         self.server_id = server_id
-        self.creation_time = datetime.now()
+        creation_time = datetime.now()
+        self.creation_time = int(datetime.now().timestamp()).to_bytes(8, byteorder='little')
         (self.encrypted_aes_key_client_and_msg_server,
          self.ticket_iv) = crypt_cbc(SERVERS_MUTUAL_KEY,
                                      client_and_mag_server_aes_key, None)
-        expiration_time = self.creation_time + timedelta(0, 300, 0)
+        expiration_time = int((creation_time + timedelta(0, 300, 0)).timestamp()).to_bytes(8, byteorder='little')
         self.encrypted_expiration_time = crypt_cbc(SERVERS_MUTUAL_KEY, expiration_time, self.ticket_iv)[0]
 
     def get_version(self):

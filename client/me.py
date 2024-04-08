@@ -1,4 +1,5 @@
 import os
+import uuid
 
 ME_INFO_PATH = 'me.info'
 
@@ -21,10 +22,18 @@ def get_client_info():
         success, client_name, client_id = read_client_info_from_file(ME_INFO_PATH)
         if success:
             print("Welcome back, {}! Your client ID is {}.".format(client_name, client_id))
-            return True, client_name, client_id
+            return True, client_name, uuid.UUID(client_id)
         else:
             print('could not read me.info')
             return False, None, None
     else:
         print('me.info not found in {}'.format(ME_INFO_PATH))
         return False, None, None
+
+
+def add_to_me_info(client_name, client_id):
+    try:
+        with open(ME_INFO_PATH, 'w') as file:
+            file.write(f"{client_name}\n{client_id}")
+    except FileNotFoundError:
+        print('Could not find me.info in the specified directory.')

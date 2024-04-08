@@ -1,8 +1,9 @@
-from crypt import decrypt_aes_cbc
+from crypt import decrypt_aes_cbc, sha256_digest
 
 
 class DecryptedEncryptedKey:
-    def __init__(self, encrypted_key_iv, nonce, client_and_mag_server_aes_key, key):
+    def __init__(self, encrypted_key_iv, nonce, client_and_mag_server_aes_key, password):
+        key = bytes.fromhex(sha256_digest(password))
         self.encrypted_key_iv = encrypted_key_iv
         self.nonce = decrypt_aes_cbc(key, nonce, encrypted_key_iv)
         self.client_and_mag_server_aes_key = decrypt_aes_cbc(key, client_and_mag_server_aes_key, encrypted_key_iv)

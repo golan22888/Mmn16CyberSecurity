@@ -22,7 +22,7 @@ class Server:
             RequestHandler(self.connections_queue, self.clients_manager).start()
 
             self.socket.listen()
-            print(f'Server listening on port {self.port}')
+            print(f'Server listening on port {self.port} {self.socket.getsockname()[0]}')
 
             while True:
                 client_socket, client_address = self.socket.accept()

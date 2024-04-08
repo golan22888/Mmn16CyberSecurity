@@ -2,7 +2,7 @@ import math
 from abc import ABC, abstractmethod
 import struct
 import payload as p
-from client.authenticator import Authenticator
+from decrypted_authenticator import DecryptedAuthenticator
 from decrypted_ticket import DecryptedTicket
 
 
@@ -30,10 +30,11 @@ class SymKeyPayloadParser(PayloadParser):
                 SymKeyPayloadParser.PROTOCOL_PAYLOAD_FORMAT, data)
             decrypted_ticket = DecryptedTicket(ticket_version, ticket_client_id, ticket_server_id, ticket_creation_time,
                                                ticket_iv, ticket_aes_key, ticket_expiration_time)
-            authenticator = Authenticator(authenticator_iv, authenticator_version, authenticator_client_id,
-                                          authenticator_server_id, authenticator_creation_time,
-                                          decrypted_ticket.get_decrypted_client_and_msg_server_aes_key())
-            payload = p.RequestAuthenticatorAndTicketPayload(authenticator,
+            decrypt_authenticator = DecryptedAuthenticator(decrypted_ticket.decrypted_client_and_msg_server_aes_key,
+                                                           authenticator_iv, authenticator_version,
+                                                           authenticator_client_id,
+                                                           authenticator_server_id, authenticator_creation_time)
+            payload = p.RequestAuthenticatorAndTicketPayload(decrypt_authenticator,
                                                              decrypted_ticket)
 
             return payload
@@ -50,8 +51,7 @@ class MsgPayloadParser(PayloadParser):
         try:
             message_size = struct.unpack(MsgPayloadParser.PROTOCOL_PAYLOAD_FORMAT, data[:p.MESSAGE_SIZE_SIZE])[0]
             # we want to calculate the message size after encryption
-            num_of_aes_blocks_for_msg = math.ceil(message_size/p.AES_CBC_BLOCK_SIZE)
-            new_protocol_payload_format = f'< {p.MESSAGE_IV_SIZE}s {num_of_aes_blocks_for_msg * p.AES_CBC_BLOCK_SIZE}s'
+            new_protocol_payload_format = f'< {p.MESSAGE_IV_SIZE}s {message_size}s'
             message_iv, message_content = struct.unpack(new_protocol_payload_format, data[p.MESSAGE_SIZE_SIZE:])
             payload = p.RequestSendMsgPayload(message_size, message_iv, message_content)
             return payload

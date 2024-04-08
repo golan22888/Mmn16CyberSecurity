@@ -21,7 +21,7 @@ class ClientsManager:
                     client = Client(client_data[0], client_data[1], client_data[2], client_data[3])
                     self.clients.append(client)
         except FileNotFoundError:
-            open(CLIENT_FILE_PATH, "w").close()
+            print("File not found")
 
     def save_client(self, client):
         with open(CLIENT_FILE_PATH, "a") as file:
@@ -38,7 +38,7 @@ class ClientsManager:
 
     @staticmethod
     def sha256_digest(password):
-        password_bytes = password.encode('utf-8')
+        password_bytes = password.encode()
         sha256_hash = hashlib.sha256()
         sha256_hash.update(password_bytes)
         digest = sha256_hash.hexdigest()
@@ -64,13 +64,13 @@ class ClientsManager:
     def get_client_by_name(self, client_name):
         with self.lock:
             for client in self.clients:
-                if client.get_client_name() == client_name:
+                if client.get_name() == client_name:
                     return client
 
     def get_client_by_id(self, client_id):
         with self.lock:
             for client in self.clients:
-                if client.get_client_id() == client_id:
+                if uuid.UUID(hex=client.get_client_id()) == client_id:
                     return client
 
     def change_last_seen_in_the_file_by_index(self, line_index, new_last_seen):

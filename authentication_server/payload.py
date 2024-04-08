@@ -65,6 +65,9 @@ class ResponseKeyPayload(ResponsePayload):
         self.encrypted_key = encrypted_key
         self.ticket = ticket
 
+    def get_client_id(self):
+        return self.client_id
+
     def get_encrypted_key(self):
         return self.encrypted_key
 

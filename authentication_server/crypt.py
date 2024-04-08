@@ -2,6 +2,7 @@ import base64
 from Crypto.Cipher import AES, PKCS1_OAEP
 from Crypto.Util.Padding import pad, unpad
 from Crypto.Random import get_random_bytes
+import datetime
 
 AES_KEY_SIZE = 32
 
@@ -14,7 +15,20 @@ def generate_aes_key():
 def encrypt_aes_cbc(key, plaintext, iv):
     if iv is None:
         iv = get_random_bytes(AES.block_size)
+    else:
+        iv = base64.b64decode(iv)
+    if isinstance(plaintext, datetime.datetime):
+        # Convert datetime to string representation
+        datetime_str = plaintext.strftime('%Y-%m-%d %H:%M:%S')
+        # Encode the string to bytes using UTF-8 encoding
+        plaintext = datetime_str.encode('utf-8')
+    elif isinstance(plaintext, int):
+        plaintext = str(plaintext).encode('utf-8')  # Convert integer to bytes
+    elif isinstance(plaintext, bytes):
+        pass  # Do nothing if plaintext is already bytes
+    else:
+        plaintext = plaintext.encode('utf-8')  # Convert string to bytes
     cipher = AES.new(key, AES.MODE_CBC, iv)
-    padded_data = pad(plaintext.encode('utf-8'), AES.block_size)
+    padded_data = pad(plaintext, AES.block_size)
     ciphertext = cipher.encrypt(padded_data)
     return base64.b64encode(ciphertext), base64.b64encode(iv)

@@ -1,55 +1,32 @@
 import payload_parser
 import payload_serializer
-import handler
 
 
 OPS = {
     # REQUEST
     1024:
         {
-            'serializer': payload_serializer.NameAndPassSerializer
+            'serializer': payload_serializer.RegistrationPayloadSerializer
         },
     1027:
         {
-            'serializer': payload_serializer.ServerIdAndNonceSerializer
+            'serializer': payload_serializer.AuthenticationPayloadSerializer
         },
     1028:
         {
-            'serializer': payload_serializer.AuthenticatorAndTicketSerializer
+            'serializer': payload_serializer.AuthenticatorAndTicketPayloadSerializer
         },
     1029:
         {
-            'serializer': payload_serializer.MessageSerializer
+            'serializer': payload_serializer.MsgPayloadSerializer
         },
     # RESPONSE
     1600:
         {
-            'parser': payload_parser.RegistrationSucceededParser,
-            'handler': handler.RegistrationSucceededHandler
-        },
-    1601:
-        {
-            'parser': payload_parser.RegistrationFailedParser,
-            'handler': handler.RegistrationFailedHadler
+            'parser': payload_parser.RegistrationSucceededParser
         },
     1603:
         {
-            'parser': payload_parser.RecieveSymKeyParser,
-            'handler': handler.RecieveSymKeyHandler
-        },
-    1604:
-        {
-          'parser': payload_parser.SymKeyAcceptedParser,
-          'handler': handler.SymKeyAcceptedHandler
-        },
-    1605:
-        {
-            'parser': payload_parser.MsgAcceptedParser,
-            'handler': handler.MsgAcceptedHandler
-        },
-    1609:
-        {
-            'parser': payload_parser.GeneralErrorParser,
-            'handler': handler.GeneralErrorHandler
+            'parser': payload_parser.SymKeyAndTicketParser
         }
 }
