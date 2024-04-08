@@ -56,12 +56,12 @@ class AuthenticatorAndTicketPayloadSerializer(PayloadSerializer):
     @staticmethod
     def serialize(payload):
         authenticator = payload.get_authenticator()
-        server_id = base64.b64decode(authenticator.get_server_id())
         ticket = payload.get_ticket()
         serialized_payload = struct.pack(AuthenticatorAndTicketPayloadSerializer.PROTOCOL_PAYLOAD_FORMAT,
                                          base64.b64decode(authenticator.get_authenticator_iv()), base64.b64decode(authenticator.get_version()),
                                          base64.b64decode(authenticator.get_client_id()), base64.b64decode(authenticator.get_server_id()),
                                          base64.b64decode(authenticator.get_creation_time()))
+
         return serialized_payload + ticket
 
 

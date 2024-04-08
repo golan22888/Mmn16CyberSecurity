@@ -7,8 +7,8 @@ AES_KEY_SIZE = 32
 
 def decrypt_aes_cbc(key, ciphertext, iv):
     try:
-        cipher = AES.new(key, AES.MODE_CBC, base64.b64decode(iv))
-        decrypted_data = cipher.decrypt(base64.b64decode(ciphertext))
+        cipher = AES.new(key, AES.MODE_CBC, iv)
+        decrypted_data = cipher.decrypt(ciphertext)
         unpadded_data = unpad(decrypted_data, AES.block_size)
         return unpadded_data.decode('utf-8')
     except Exception as e:

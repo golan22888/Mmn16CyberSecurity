@@ -29,20 +29,17 @@ class RegistrationSucceededParser(PayloadParser):
 class SymKeyAndTicketParser(PayloadParser):
     PROTOCOL_PAYLOAD_FORMAT = (
         f'< {p.CLIENT_ID_SIZE}s {p.ENCRYPTED_KEY_IV_SIZE}s {p.AES_CBC_BLOCK_SIZE}s {3 * p.AES_CBC_BLOCK_SIZE}s'
-        f' B {p.CLIENT_ID_SIZE}s {p.SERVER_ID_SIZE}s {p.CREATION_TIME_SIZE}s'
-        f' {p.TICKET_IV_SIZE}s {3 * p.AES_CBC_BLOCK_SIZE}s {p.AES_CBC_BLOCK_SIZE}s')
+        f' {121}s ')
 
     @staticmethod
     def parse(data):
         try:
-            (client_id, encrypted_key_iv, nonce, encrypted_key_aes_key, version, ticket_client_id, server_id,
-             creation_time, ticket_iv, ticket_aes_key, expiration_time) = (
+            (client_id, encrypted_key_iv, nonce, encrypted_key_aes_key, ticket) = (
                 struct.unpack(
                     SymKeyAndTicketParser.PROTOCOL_PAYLOAD_FORMAT, data))
             password = input("Enter your password: ")
             decrypted_key = DecryptedEncryptedKey(encrypted_key_iv, nonce, encrypted_key_aes_key, password)
-            serialized_ticket = (version.to_bytes(8, byteorder='little') + ticket_client_id + server_id + creation_time + ticket_iv + ticket_aes_key +
-                                 expiration_time)
+            serialized_ticket = ticket
             payload = p.ReceiveSymKeyAndTicketPayload(uuid.UUID(bytes=client_id), decrypted_key,
                                                       serialized_ticket)
             return payload

@@ -16,10 +16,10 @@ class PayloadParser(ABC):
 class SymKeyPayloadParser(PayloadParser):
     # version, client_id, server_id, creation_time, aes_key, expiration_time -> are encrypted, so we need to take their
     # sizes with the padded data
-    PROTOCOL_PAYLOAD_FORMAT = (f'< {p.AUTHENTICATOR_IV_SIZE}s {p.AES_CBC_BLOCK_SIZE}s {p.AES_CBC_BLOCK_SIZE}s '
-                               f'{p.AES_CBC_BLOCK_SIZE}s {p.AES_CBC_BLOCK_SIZE}s {p.VERSION_SIZE}s {p.CLIENT_ID_SIZE}s '
-                               f'{p.SERVER_ID_SIZE}s {p.TICKET_IV_SIZE}s {p.CREATION_TIME_SIZE}s  {p.TICKET_IV_SIZE}s '
-                               f'{2 * p.AES_CBC_BLOCK_SIZE}s {p.AES_CBC_BLOCK_SIZE}s')
+    PROTOCOL_PAYLOAD_FORMAT = (f'< {p.AUTHENTICATOR_IV_SIZE}s {p.AES_CBC_BLOCK_SIZE}s {2 * p.AES_CBC_BLOCK_SIZE}s '
+                               f'{2 * p.AES_CBC_BLOCK_SIZE}s {p.AES_CBC_BLOCK_SIZE}s B {p.CLIENT_ID_SIZE}s '
+                               f'{p.SERVER_ID_SIZE}s {p.CREATION_TIME_SIZE}s {p.TICKET_IV_SIZE}s '
+                               f'{3 * p.AES_CBC_BLOCK_SIZE}s {p.AES_CBC_BLOCK_SIZE}s')
 
     @staticmethod
     def parse(data):
