@@ -13,6 +13,7 @@ class HeaderParser:
             client_id, version, code, payload_size = struct.unpack(PROTOCOL_HEADER_FORMAT, data[:HEADER_SIZE])
             header = RequestHeader(uuid.UUID(bytes=client_id), version, code, payload_size)
         except Exception as e:
-            raise Exception('Error parsing header')
+            print(e)
+            raise Exception('Error parsing header in msg server')
 
         return header

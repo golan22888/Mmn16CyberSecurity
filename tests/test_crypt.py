@@ -22,6 +22,7 @@ class TestCrypt(TestCase):
             # key = base64.b64encode(key)
             # print(key)
             # key = base64.b64decode(key)
+
             key = base64.b64decode(SERVERS_MUTUAL_KEY)
             print(key)
             cipher_text, iv = self.test_encrypt_aes_cbc(key, self.content)

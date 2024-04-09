@@ -28,5 +28,13 @@ OPS = {
     1603:
         {
             'parser': payload_parser.SymKeyAndTicketParser
+        },
+    1604:
+        {
+            'parser': payload_parser.EmptyPayload
+        },
+    1605:
+        {
+            'parser': payload_parser.EmptyPayload
         }
 }

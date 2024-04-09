@@ -17,7 +17,7 @@ def encrypt_aes_cbc(key, plaintext, iv):
     if isinstance(plaintext, uuid.UUID):
         plaintext = plaintext.bytes
     elif isinstance(plaintext, int):
-        plaintext = str(plaintext).encode('utf-8')  # Convert integer to bytes
+        plaintext = plaintext.to_bytes(1, byteorder="little")  # Convert integer to bytes
     elif isinstance(plaintext, bytes):
         pass  # Do nothing if plaintext is already bytes
     else:

@@ -10,10 +10,11 @@ class ResponseProvider:
     @staticmethod
     def make_response(request, code):
         match code:
-            case 1605 | 1609:
+            case 1609:
                 payload = p.ResponseEmptyPayload()
-            case 1604:
+            case 1604 | 1605:
                 payload = p.ResponseEmptyPayload()
+                print(f"response {code} is being sent")
             case default:
                 raise ValueError(f'Unknown response code: {code}')
 

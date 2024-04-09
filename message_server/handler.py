@@ -1,4 +1,6 @@
 from abc import ABC, abstractmethod
+
+from client import Client
 from response_provider import ResponseProvider
 from crypt import decrypt_aes_cbc as decrypt
 
@@ -19,8 +21,10 @@ class SentSymKeyHandler(Handler):
         try:
             if SERVER_VERSION != request.get_header().get_version():
                 raise Exception
-            client_id = request.get_header().get_id()
-            client = client_manager.get_client_by_id(client_id)
+            client_id = request.get_header().get_client_id()
+            client_key = request.get_payload().get_ticket().get_decrypted_client_and_msg_server_aes_key()
+            client_expiration_time = request.get_payload().get_ticket().get_decrypted_expiration_time()
+            client = Client(client_id, client_key, client_expiration_time)
             client_manager.save_client(client)
             print(f'client {client_id} is sending a symmetric key')
             return ResponseProvider.make_response(request, 1604)
@@ -36,7 +40,7 @@ class SentMessageHandler(Handler):
         try:
             if SERVER_VERSION != request.get_header().get_version():
                 raise Exception
-            client_id = request.get_header().get_id()
+            client_id = request.get_header().get_client_id()
             client = client_manager.get_client_by_id(client_id)
             if client.key_is_expired():
                 raise Exception

@@ -46,7 +46,7 @@ class RequestSymKeyPayloadSerializer(RegisterPayloadSerializer):
         # nonce, aes_key, aes_key, expiration_time -> those arguments are encrypted, so we need to get them with the
         # padded data
         f'< {CLIENT_ID_SIZE}s {ENCRYPTED_KEY_IV_SIZE}s {AES_CBC_BLOCK_SIZE}s {3 * AES_CBC_BLOCK_SIZE}s '
-        f' B {CLIENT_ID_SIZE}s {SERVER_ID_SIZE}s {CREATION_TIME_SIZE}s '
+        f' B {CLIENT_ID_SIZE}s {SERVER_ID_SIZE}s d '
         f'{TICKET_IV_SIZE}s {3 * AES_CBC_BLOCK_SIZE}s {AES_CBC_BLOCK_SIZE}s')
 
     @staticmethod

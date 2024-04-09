@@ -32,7 +32,6 @@ class SendNameAndPassPayload(Payload):
         return self.password
 
 
-
 class SendServerIdAndNoncePayload(Payload):
     def __init__(self, server_id, nonce):
         self.serverId = server_id
@@ -43,7 +42,6 @@ class SendServerIdAndNoncePayload(Payload):
 
     def get_nonce(self):
         return self.nonce
-
 
 
 class SendAuthenticatorAndTicketPayload(Payload):
@@ -61,7 +59,7 @@ class SendAuthenticatorAndTicketPayload(Payload):
 class SendMessagePayload(Payload):
     def __init__(self, message_content, key):
         self.message_content, self.message_iv = encrypt(key, message_content, None)
-        self.message_size = len(base64.b64encode(self.message_content))
+        self.message_size = len(self.message_content)
 
     def get_message_size(self):
         return self.message_size
@@ -95,3 +93,8 @@ class ReceiveSymKeyAndTicketPayload(Payload):
 
     def get_ticket(self):
         return self.ticket
+
+
+class EmptyPayload(Payload):
+    def __init__(self):
+        self.size = 0

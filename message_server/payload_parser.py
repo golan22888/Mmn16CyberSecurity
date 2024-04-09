@@ -18,7 +18,7 @@ class SymKeyPayloadParser(PayloadParser):
     # sizes with the padded data
     PROTOCOL_PAYLOAD_FORMAT = (f'< {p.AUTHENTICATOR_IV_SIZE}s {p.AES_CBC_BLOCK_SIZE}s {2 * p.AES_CBC_BLOCK_SIZE}s '
                                f'{2 * p.AES_CBC_BLOCK_SIZE}s {p.AES_CBC_BLOCK_SIZE}s B {p.CLIENT_ID_SIZE}s '
-                               f'{p.SERVER_ID_SIZE}s {p.CREATION_TIME_SIZE}s {p.TICKET_IV_SIZE}s '
+                               f'{p.SERVER_ID_SIZE}s d {p.TICKET_IV_SIZE}s '
                                f'{3 * p.AES_CBC_BLOCK_SIZE}s {p.AES_CBC_BLOCK_SIZE}s')
 
     @staticmethod

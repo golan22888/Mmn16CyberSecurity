@@ -63,7 +63,7 @@ class Client:
         except Exception as e:
             print(e)
 
-        self.send_msg_to_print(client_id, decrypted_key, connection_msg)
+        self.send_msg_to_print(client_id, decrypted_key.get_client_and_mag_server_aes_key(), connection_msg)
         response_from_server = connection_msg.receive()
         try:
             self.check_code(response_from_server.get_header().get_code(), 1605)

@@ -46,3 +46,9 @@ class SymKeyAndTicketParser(PayloadParser):
         except Exception as e:
             print(e)
             raise Exception('Error parsing the symmetric key and ticket in client')
+
+
+class EmptyPayload(PayloadParser):
+    @staticmethod
+    def parse(data):
+        return p.EmptyPayload

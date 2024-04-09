@@ -18,7 +18,7 @@ class ClientsManager:
             with open(CLIENT_FILE_PATH, 'r') as file:
                 for line in file:
                     client_data = line.strip().split(":")
-                    client = Client(client_data[0], client_data[1], client_data[2], client_data[3])
+                    client = Client(uuid.UUID(hex=client_data[0]), client_data[1], client_data[2], client_data[3])
                     self.clients.append(client)
         except FileNotFoundError:
             print("File not found")
@@ -32,7 +32,7 @@ class ClientsManager:
     def register_client(self, name, password):
         client_id = uuid.uuid4()
         hashed_password = ClientsManager.sha256_digest(password)
-        client = Client(client_id, name, hashed_password, datetime.now())
+        client = Client(client_id, name, hashed_password, datetime.now().timestamp())
         with self.lock:
             self.save_client(client)
 
@@ -47,7 +47,7 @@ class ClientsManager:
     def update_last_seen_by_id(self, client_id):
         try:
             client_index = self.get_client_index_by_id(client_id)
-            last_seen = datetime.now()
+            last_seen = datetime.now().timestamp()
             self.clients[client_index].set_last_seen(last_seen)
             self.change_last_seen_in_the_file_by_index(client_index, last_seen)
         except Exception as e:
@@ -70,7 +70,7 @@ class ClientsManager:
     def get_client_by_id(self, client_id):
         with self.lock:
             for client in self.clients:
-                if uuid.UUID(hex=client.get_client_id()) == client_id:
+                if client.get_client_id() == client_id:
                     return client
 
     def change_last_seen_in_the_file_by_index(self, line_index, new_last_seen):

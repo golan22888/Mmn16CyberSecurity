@@ -24,6 +24,8 @@ def encrypt_aes_cbc(key, plaintext, iv):
         plaintext = datetime_str.encode('utf-8')
     elif isinstance(plaintext, int):
         plaintext = str(plaintext).encode('utf-8')  # Convert integer to bytes
+    elif isinstance(plaintext, float):
+        plaintext = str(plaintext).encode('utf-8')  # Convert float to bytes
     elif isinstance(plaintext, bytes):
         pass  # Do nothing if plaintext is already bytes
     else:

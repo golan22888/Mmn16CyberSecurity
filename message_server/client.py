@@ -17,4 +17,5 @@ class Client:
         return self.expiration_time
 
     def key_is_expired(self):
-        return datetime.now() > self.get_expiration_time()
+
+        return datetime.now().timestamp() > float(self.get_expiration_time())

@@ -13,11 +13,11 @@ class Ticket:
         self.client_id = client_id
         self.server_id = server_id
         creation_time = datetime.now()
-        self.creation_time = int(datetime.now().timestamp()).to_bytes(8, byteorder='little')
+        self.creation_time = datetime.now().timestamp()
         (self.encrypted_aes_key_client_and_msg_server,
          self.ticket_iv) = crypt_cbc(SERVERS_MUTUAL_KEY,
                                      client_and_mag_server_aes_key, None)
-        expiration_time = int((creation_time + timedelta(0, 300, 0)).timestamp()).to_bytes(8, byteorder='little')
+        expiration_time = (creation_time + timedelta(0, 300, 0)).timestamp()
         self.encrypted_expiration_time = crypt_cbc(SERVERS_MUTUAL_KEY, expiration_time, self.ticket_iv)[0]
 
     def get_version(self):

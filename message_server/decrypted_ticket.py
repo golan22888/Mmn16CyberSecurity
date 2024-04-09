@@ -1,7 +1,8 @@
+import base64
 from datetime import datetime, timedelta
 from crypt import decrypt_aes_cbc as decrypt
 
-SERVERS_MUTUAL_KEY = 'DlU/1WUMQgbfqzX+mO5QlNzUAQT7VpJUE1vfHouFO/s'
+SERVERS_MUTUAL_KEY = base64.b64decode(b'DlU/1WUMQgbfqzX+mO5QlNzUAQT7VpJUE1vfHouFO/s=')
 
 SERVER_VERSION = 24
 
@@ -16,7 +17,7 @@ class DecryptedTicket:
         self.ticket_iv = ticket_iv
         self.decrypted_client_and_msg_server_aes_key = decrypt(SERVERS_MUTUAL_KEY,
                                                                encrypted_client_and_msg_server_aes_key, self.ticket_iv)
-        self.decrypted_expiration_time = decrypt(SERVER_VERSION, encrypted_expiration_time, self.ticket_iv)
+        self.decrypted_expiration_time = decrypt(SERVERS_MUTUAL_KEY, encrypted_expiration_time, self.ticket_iv)
 
     def get_version(self):
         return self.version

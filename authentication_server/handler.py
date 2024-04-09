@@ -30,7 +30,7 @@ class RegisterHandler(Handler):
             client_manager.register_client(client_name, client_password)
             client = client_manager.get_client_by_name(client_name)
             print(f'client {client_name} is registered')
-            return ResponseProvider.make_response(request, 1600, id=client.get_client_id())
+            return ResponseProvider.make_response(request, 1600, client_id=client.get_client_id())
         except Exception as e:
             print(e)
             ResponseProvider.make_response(request, 1609)
@@ -56,4 +56,4 @@ class SymKeyRequestHandler(Handler):
         except Exception as e:
             print(e)
             ResponseProvider.make_response(request, 1609)
-            raise Exception('Error while getting the symmetric key and the ticket')
+            raise Exception('Error while sending the symmetric key and the ticket')

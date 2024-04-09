@@ -10,7 +10,7 @@ def decrypt_aes_cbc(key, ciphertext, iv):
         cipher = AES.new(key, AES.MODE_CBC, iv)
         decrypted_data = cipher.decrypt(ciphertext)
         unpadded_data = unpad(decrypted_data, AES.block_size)
-        return unpadded_data.decode('utf-8')
+        return unpadded_data
     except Exception as e:
         print("Error decrypting data:", e)
         return None

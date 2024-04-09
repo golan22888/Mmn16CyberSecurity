@@ -1,3 +1,4 @@
+import uuid
 from threading import Lock
 from client import Client
 
@@ -15,7 +16,7 @@ class ClientsManager:
             with open(CLIENT_FILE_PATH, 'r') as file:
                 for line in file:
                     client_data = line.strip().split(":")
-                    client = Client(client_data[0], client_data[1], client_data[2])
+                    client = Client(uuid.UUID(hex=client_data[0]), client_data[1], client_data[2])
                     self.clients.append(client)
         except FileNotFoundError:
             print("File not found")
@@ -29,9 +30,11 @@ class ClientsManager:
                 file.write(
                     f"{client.get_client_id()}:{client.get_client_msg_server_key()}:{client.get_expiration_time()}\n")
 
-    # def register_client(self, client):
-    #     with self.lock:
-    #         self.save_client(client)
+    def get_client_by_id(self, client_id):
+        with self.lock:
+            for client in self.clients:
+                if client.get_client_id() == client_id:
+                    return client
 
     def update_key_validity(self, client):
         try:
