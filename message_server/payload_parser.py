@@ -1,4 +1,4 @@
-import math
+import message_server_constant as c
 from abc import ABC, abstractmethod
 import struct
 import payload as p
@@ -16,10 +16,10 @@ class PayloadParser(ABC):
 class SymKeyPayloadParser(PayloadParser):
     # version, client_id, server_id, creation_time, aes_key, expiration_time -> are encrypted, so we need to take their
     # sizes with the padded data
-    PROTOCOL_PAYLOAD_FORMAT = (f'< {p.AUTHENTICATOR_IV_SIZE}s {p.AES_CBC_BLOCK_SIZE}s {2 * p.AES_CBC_BLOCK_SIZE}s '
-                               f'{2 * p.AES_CBC_BLOCK_SIZE}s {p.AES_CBC_BLOCK_SIZE}s B {p.CLIENT_ID_SIZE}s '
-                               f'{p.SERVER_ID_SIZE}s d {p.TICKET_IV_SIZE}s '
-                               f'{3 * p.AES_CBC_BLOCK_SIZE}s {p.AES_CBC_BLOCK_SIZE}s')
+    PROTOCOL_PAYLOAD_FORMAT = (f'< {c.AUTHENTICATOR_IV_SIZE}s {c.AES_CBC_BLOCK_SIZE}s {2 * c.AES_CBC_BLOCK_SIZE}s '
+                               f'{2 * c.AES_CBC_BLOCK_SIZE}s {c.AES_CBC_BLOCK_SIZE}s B {c.CLIENT_ID_SIZE}s '
+                               f'{c.SERVER_ID_SIZE}s d {c.TICKET_IV_SIZE}s '
+                               f'{3 * c.AES_CBC_BLOCK_SIZE}s {c.AES_CBC_BLOCK_SIZE}s')
 
     @staticmethod
     def parse(data):
@@ -49,10 +49,10 @@ class MsgPayloadParser(PayloadParser):
     @staticmethod
     def parse(data):
         try:
-            message_size = struct.unpack(MsgPayloadParser.PROTOCOL_PAYLOAD_FORMAT, data[:p.MESSAGE_SIZE_SIZE])[0]
+            message_size = struct.unpack(MsgPayloadParser.PROTOCOL_PAYLOAD_FORMAT, data[:c.MESSAGE_SIZE_SIZE])[0]
             # we want to calculate the message size after encryption
-            new_protocol_payload_format = f'< {p.MESSAGE_IV_SIZE}s {message_size}s'
-            message_iv, message_content = struct.unpack(new_protocol_payload_format, data[p.MESSAGE_SIZE_SIZE:])
+            new_protocol_payload_format = f'< {c.MESSAGE_IV_SIZE}s {message_size}s'
+            message_iv, message_content = struct.unpack(new_protocol_payload_format, data[c.MESSAGE_SIZE_SIZE:])
             payload = p.RequestSendMsgPayload(message_size, message_iv, message_content)
             return payload
         except Exception as e:

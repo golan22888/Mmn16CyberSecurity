@@ -13,10 +13,10 @@ class RequestParser:
             raise Exception('Error parsing header in client')
 
     @staticmethod
-    def parse_payload(code, data):
+    def parse_payload(code, data, nonce):
         try:
             payload_parser = PayloadParserProvider.get_payload_parser(code)
-            payload = payload_parser.parse(data)
+            payload = payload_parser.parse(data, nonce)
             return payload
         except Exception as e:
             print(e)

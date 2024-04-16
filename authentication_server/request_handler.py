@@ -5,8 +5,7 @@ from response_serializer import ResponseSerializer
 from message import Message
 from request_parser import RequestParser
 from header_parser import HEADER_SIZE
-
-PACKET_SIZE = 1024
+from authenticator_constant import PACKET_SIZE
 
 
 class RequestHandler(Thread):

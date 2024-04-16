@@ -1,12 +1,8 @@
 import socket
-import struct
 from message import Message
 from response_serializer import ResponseSerializer
 from request_parser import RequestParser
-
-CLIENT_VERSION = 24
-PACKET_SIZE = 1024
-SERVER_HEADER_SIZE = 7
+from client_constant import PACKET_SIZE, SERVER_HEADER_SIZE
 
 
 class Connection:
@@ -37,7 +33,7 @@ class Connection:
             print('Error while sending to {}:{}'.format(self.address, self.port))
             return False
 
-    def receive(self):
+    def receive(self, nonce):
         try:
             data = b''
             while len(data) < SERVER_HEADER_SIZE:
@@ -55,7 +51,7 @@ class Connection:
                 data += buffer
 
             payload_data = data[SERVER_HEADER_SIZE: SERVER_HEADER_SIZE + payload_size]
-            payload = RequestParser.parse_payload(header.get_code(), payload_data)
+            payload = RequestParser.parse_payload(header.get_code(), payload_data, nonce)
 
             request = Message(header, payload)
 
@@ -64,4 +60,3 @@ class Connection:
         except Exception as e:
             print(e)
             raise Exception('Error while receiving request')
-

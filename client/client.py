@@ -1,5 +1,4 @@
 import uuid
-
 from authenticator import Authenticator
 from connection import Connection
 import me
@@ -7,10 +6,7 @@ from header import ResponseHeader
 import payload as p
 from message import Message
 from Crypto.Random import get_random_bytes
-
-CLIENT_VERSION = 24
-SERVER_ID = '1066b629bebc4c3d9f236c33c013e084'
-NONCE_SIZE = 8
+from client_constant import CLIENT_VERSION, SERVER_ID, NONCE_SIZE
 
 
 class Client:
@@ -19,6 +15,7 @@ class Client:
         self.auth_server_port = auth_server_port
         self.msg_server_ip = msg_server_ip
         self.msg_server_port = msg_server_port
+        self.nonce = 0
 
     def start(self):
         connection_auth = Connection(self.auth_server_ip, self.auth_server_port)
@@ -26,7 +23,7 @@ class Client:
         success, client_name, client_id = me.get_client_info()
         while not success:
             client_name = self.register(connection_auth)
-            response_from_server = connection_auth.receive()
+            response_from_server = connection_auth.receive(self.nonce)
             if response_from_server.get_header().get_code() == 1601:
                 print("User with that name is already exist")
                 continue
@@ -34,19 +31,14 @@ class Client:
             client_id = response_from_server.get_payload().get_client_id()
             me.add_to_me_info(client_name, client_id)
 
-        nonce = self.ask_for_key_and_ticket(client_id, connection_auth)
-        response_from_server = connection_auth.receive()
+        self.nonce = self.ask_for_key_and_ticket(client_id, connection_auth)
+        response_from_server = connection_auth.receive(self.nonce)
         try:
             self.check_code(response_from_server.get_header().get_code(), 1603)
         except Exception as e:
             print(e)
         decrypted_key = response_from_server.get_payload().get_decrypted_key()
 
-        # check if the nonce value form the server is valid
-        try:
-            self.check_nonce(decrypted_key.get_nonce(), nonce)
-        except Exception as e:
-            print(e)
         authenticator = Authenticator(response_from_server.get_header().get_version(), client_id, SERVER_ID,
                                       decrypted_key.get_client_and_mag_server_aes_key())
         connection_auth.disconnect()
@@ -57,14 +49,14 @@ class Client:
         self.send_authenticator_and_ticket(client_id, authenticator, response_from_server.get_payload().get_ticket(),
                                            connection_msg)
 
-        response_from_server = connection_msg.receive()
+        response_from_server = connection_msg.receive(self.nonce)
         try:
             self.check_code(response_from_server.get_header().get_code(), 1604)
         except Exception as e:
             print(e)
 
         self.send_msg_to_print(client_id, decrypted_key.get_client_and_mag_server_aes_key(), connection_msg)
-        response_from_server = connection_msg.receive()
+        response_from_server = connection_msg.receive(self.nonce)
         try:
             self.check_code(response_from_server.get_header().get_code(), 1605)
         except Exception as e:

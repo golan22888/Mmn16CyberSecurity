@@ -1,6 +1,3 @@
-CLIENT_ID_SIZE = 16
-
-
 class Header:
     def __init__(self, version, code):
         self.version = version

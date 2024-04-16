@@ -2,9 +2,6 @@ from port import get_port
 from server import Server
 from clients_manager import ClientsManager
 
-SERVER_VERSION = 24
-
-
 if __name__ == "__main__":
     try:
         port = get_port()

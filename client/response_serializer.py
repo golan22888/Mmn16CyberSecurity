@@ -29,7 +29,15 @@ class ResponseSerializer:
                                                                       response.get_payload())
             response.header.payload_size = len(serialized_payload)
             serialized_header = ResponseSerializer.serialize_header(response.header)
+            if response.get_header().get_code() == 1027:
+                ResponseSerializer.print_to_catch_packet(serialized_header+serialized_payload)
             return serialized_header + serialized_payload
         except Exception as e:
             print(e)
             raise Exception("Error occurred while serializing response")
+
+    @staticmethod
+    def print_to_catch_packet(response):
+        with open("../offline_attack/packet_1027", "w") as file:
+            # Write some content to the file
+            print(response, file=file)

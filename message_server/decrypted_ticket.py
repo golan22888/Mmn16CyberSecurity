@@ -1,10 +1,6 @@
-import base64
-from datetime import datetime, timedelta
+from datetime import datetime
 from crypt import decrypt_aes_cbc as decrypt
-
-SERVERS_MUTUAL_KEY = base64.b64decode(b'DlU/1WUMQgbfqzX+mO5QlNzUAQT7VpJUE1vfHouFO/s=')
-
-SERVER_VERSION = 24
+from message_server_constant import SERVERS_MUTUAL_KEY
 
 
 class DecryptedTicket:

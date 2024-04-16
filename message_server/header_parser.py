@@ -1,7 +1,7 @@
 import struct
-from header import RequestHeader, CLIENT_ID_SIZE
+from header import RequestHeader
 import uuid
-
+from message_server_constant import CLIENT_ID_SIZE
 PROTOCOL_HEADER_FORMAT = f'< {CLIENT_ID_SIZE}s B H I'
 HEADER_SIZE = struct.calcsize(PROTOCOL_HEADER_FORMAT)
 

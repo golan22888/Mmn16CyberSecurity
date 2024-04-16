@@ -1,10 +1,6 @@
 from server import Server
 from read_from_msg_info import get_port_server_mutual_key as data
-
 from clients_manager import ClientsManager
-
-
-SERVER_VERSION = 24
 
 if __name__ == "__main__":
     try:
@@ -15,3 +11,4 @@ if __name__ == "__main__":
         server.start()
     except Exception as e:
         print(e)
+        print("Error in main")

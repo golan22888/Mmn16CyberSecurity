@@ -1,8 +1,5 @@
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad
-import base64
-
-AES_KEY_SIZE = 32
 
 
 def decrypt_aes_cbc(key, ciphertext, iv):

@@ -3,8 +3,7 @@ import hashlib
 from threading import Lock
 from datetime import datetime
 from client import Client
-
-CLIENT_FILE_PATH = './clients.txt'
+from authenticator_constant import CLIENT_FILE_PATH
 
 
 class ClientsManager:

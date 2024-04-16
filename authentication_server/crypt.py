@@ -1,10 +1,10 @@
 import base64
-from Crypto.Cipher import AES, PKCS1_OAEP
-from Crypto.Util.Padding import pad, unpad
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad
 from Crypto.Random import get_random_bytes
 import datetime
-
-AES_KEY_SIZE = 32
+import struct
+from authenticator_constant import AES_KEY_SIZE
 
 
 def generate_aes_key():
@@ -25,7 +25,7 @@ def encrypt_aes_cbc(key, plaintext, iv):
     elif isinstance(plaintext, int):
         plaintext = str(plaintext).encode('utf-8')  # Convert integer to bytes
     elif isinstance(plaintext, float):
-        plaintext = str(plaintext).encode('utf-8')  # Convert float to bytes
+        plaintext = struct.pack('d', plaintext)  # Convert float to bytes
     elif isinstance(plaintext, bytes):
         pass  # Do nothing if plaintext is already bytes
     else:

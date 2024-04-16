@@ -1,11 +1,8 @@
 from abc import ABC, abstractmethod
-
 from client import Client
 from response_provider import ResponseProvider
 from crypt import decrypt_aes_cbc as decrypt
-
-
-SERVER_VERSION = 24
+from message_server_constant import SERVER_VERSION
 
 
 class Handler(ABC):
@@ -26,7 +23,7 @@ class SentSymKeyHandler(Handler):
             client_expiration_time = request.get_payload().get_ticket().get_decrypted_expiration_time()
             client = Client(client_id, client_key, client_expiration_time)
             client_manager.save_client(client)
-            print(f'client {client_id} is sending a symmetric key')
+
             return ResponseProvider.make_response(request, 1604)
         except Exception as e:
             print(e)
@@ -42,19 +39,17 @@ class SentMessageHandler(Handler):
                 raise Exception
             client_id = request.get_header().get_client_id()
             client = client_manager.get_client_by_id(client_id)
-            if client.key_is_expired():
+            if client is not None and client.key_is_expired():
                 raise Exception
             msg_iv = request.get_payload().get_message_iv()
             encrypted_message = request.get_payload().get_message_content()
             client_key = client.get_client_msg_server_key()
-            decrypted_message = decrypt(client_key, encrypted_message, msg_iv)
+            decrypted_message = decrypt(client_key, encrypted_message, msg_iv).decode('utf-8')
             # need to print message after decrypting it
-            print(f'client {client_id} is sent this message:')
+            print(f'client {client_id} has sent this message:')
             print(decrypted_message)
             return ResponseProvider.make_response(request, 1605)
         except Exception as e:
             print(e)
             ResponseProvider.make_response(request, 1609)
             raise Exception('Error while printing the message of client')
-
-

@@ -1,9 +1,7 @@
 from header import ResponseHeader
 import payload as p
 from message import Message
-from crypt import decrypt_aes_cbc as decrypt
-
-SERVER_VERSION = 24
+from message_server_constant import SERVER_VERSION
 
 
 class ResponseProvider:
@@ -22,5 +20,3 @@ class ResponseProvider:
         response = Message(header, payload)
 
         return response
-
-

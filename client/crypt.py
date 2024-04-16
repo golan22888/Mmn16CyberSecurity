@@ -1,12 +1,9 @@
 import base64
 import hashlib
-
-from Crypto.Cipher import AES, PKCS1_OAEP
+from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 from Crypto.Random import get_random_bytes
 import uuid
-
-AES_KEY_SIZE = 32
 
 
 def encrypt_aes_cbc(key, plaintext, iv):
@@ -26,6 +23,7 @@ def encrypt_aes_cbc(key, plaintext, iv):
     padded_data = pad(plaintext, AES.block_size)
     ciphertext = cipher.encrypt(padded_data)
     return base64.b64encode(ciphertext), base64.b64encode(iv)
+
 
 def decrypt_aes_cbc(key, ciphertext, iv):
     try:

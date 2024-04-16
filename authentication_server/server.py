@@ -1,9 +1,6 @@
 import socket
 from request_handler import RequestHandler
 from connection_queue import ConnectionQueue
-from servers_mutual_key import get_key_from_file
-
-SERVERS_MUTUAL_KEY = get_key_from_file()
 
 
 class Server:

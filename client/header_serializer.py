@@ -1,6 +1,6 @@
 import struct
+from client_constant import CLIENT_ID_SIZE
 
-CLIENT_ID_SIZE = 16
 PROTOCOL_HEADER_FORMAT = f'< {CLIENT_ID_SIZE}s B H I'
 
 

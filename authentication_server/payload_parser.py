@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 import struct
 import payload as p
+import authenticator_constant as c
 
 
 class PayloadParser(ABC):
@@ -11,7 +12,7 @@ class PayloadParser(ABC):
 
 
 class RegisterPayloadParser(PayloadParser):
-    PROTOCOL_PAYLOAD_FORMAT = f'< {p.CLIENT_NAME_SIZE}s {p.CLIENT_PASSWORD_SIZE}s'
+    PROTOCOL_PAYLOAD_FORMAT = f'< {c.CLIENT_NAME_SIZE}s {c.CLIENT_PASSWORD_SIZE}s'
 
     @staticmethod
     def parse(data):
@@ -26,7 +27,7 @@ class RegisterPayloadParser(PayloadParser):
 
 
 class RequestSymKeyPayloadParser(PayloadParser):
-    PROTOCOL_PAYLOAD_FORMAT = f'< {p.SERVER_ID_SIZE}s {p.NONCE_SIZE}s'
+    PROTOCOL_PAYLOAD_FORMAT = f'< {c.SERVER_ID_SIZE}s {c.NONCE_SIZE}s'
 
     @staticmethod
     def parse(data):

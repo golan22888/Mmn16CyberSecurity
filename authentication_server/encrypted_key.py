@@ -1,5 +1,4 @@
 from crypt import encrypt_aes_cbc as encrypt_cbc
-import hashlib
 
 
 class EncryptedKey:

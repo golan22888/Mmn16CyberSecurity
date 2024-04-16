@@ -1,9 +1,6 @@
-
 from srv import get_servers_info
-from connection import Connection
 from client import Client
 
-CLIENT_VERSION = 24
 
 if __name__ == "__main__":
     try:

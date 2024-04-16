@@ -1,8 +1,4 @@
-import base64
-
 from crypt import decrypt_aes_cbc as decrypt
-
-SERVER_VERSION = 24
 
 
 class DecryptedAuthenticator:

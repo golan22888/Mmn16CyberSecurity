@@ -3,8 +3,7 @@ from crypt import generate_aes_key
 from response_provider import ResponseProvider
 from encrypted_key import EncryptedKey
 from ticket import Ticket
-
-SERVER_VERSION = 24
+from authenticator_constant import SERVER_VERSION
 
 
 class Handler(ABC):

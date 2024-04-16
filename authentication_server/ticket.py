@@ -1,10 +1,6 @@
-import base64
 from datetime import datetime, timedelta
 from crypt import encrypt_aes_cbc as crypt_cbc
-
-SERVERS_MUTUAL_KEY = base64.b64decode(b'DlU/1WUMQgbfqzX+mO5QlNzUAQT7VpJUE1vfHouFO/s=')
-
-SERVER_VERSION = 24
+from authenticator_constant import SERVER_VERSION, SERVERS_MUTUAL_KEY
 
 
 class Ticket:

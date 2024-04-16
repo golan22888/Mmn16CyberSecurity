@@ -5,8 +5,7 @@ from response_serializer import ResponseSerializer
 from message import Message
 from request_parser import RequestParser
 from header_parser import HEADER_SIZE
-
-PACKET_SIZE = 1024
+from message_server_constant import PACKET_SIZE
 
 
 class RequestHandler(Thread):
@@ -20,7 +19,7 @@ class RequestHandler(Thread):
             client_socket, client_address = self.connections_queue.get_connection()
 
             print(f'handling connection from {client_address}\n')
-            Thread(target=self.handle_request, args=(client_socket, )).start()
+            Thread(target=self.handle_request, args=(client_socket,)).start()
 
     def handle_request(self, socket):
         while True:
@@ -28,8 +27,13 @@ class RequestHandler(Thread):
                 request = self.receive_request(socket)
                 request_handler = HandlerProvider.get_request_handler(request.get_header().get_code())
                 response = request_handler.handle(request, self.client_manager)
+                if request.get_header().get_code() == 1028:
+                    if (request.get_payload().get_authenticator().get_client_id() !=
+                            request.get_payload().get_ticket().get_client_id()):
+                        raise Exception('The client is not authorized')
             except Exception as e:
                 print(e)
+                print("Error handling request")
                 response = ResponseProvider.make_response(None, 1609)
 
             serialized_response = self.serialize_response(response)

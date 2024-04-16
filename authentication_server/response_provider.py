@@ -1,8 +1,7 @@
 from header import ResponseHeader
 import payload as p
 from message import Message
-
-SERVER_VERSION = 24
+from authenticator_constant import SERVER_VERSION
 
 
 class ResponseProvider:
